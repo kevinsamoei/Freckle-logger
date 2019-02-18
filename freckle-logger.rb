@@ -21,7 +21,7 @@ class FreckleLogger
   end
 
   def project_id
-    params = {name: project_name}
+    params = {name: project_name.to_s}
     projects = client.get_projects(params)
 
     projects[0].id
@@ -30,7 +30,7 @@ class FreckleLogger
   def attributes(date)
     {
       "date": date,
-      "minutes": hours * 60,
+      "minutes": hours.to_i * 60,
       "description": "#clientEngagement, #partnerEngagement",
       "project_id": project_id
     }
