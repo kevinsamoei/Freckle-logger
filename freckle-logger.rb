@@ -3,14 +3,14 @@ require 'date'
 
 class FreckleLogger
 
-  def initialize(token, hours, project_name, days)
+  def initialize(token, hours, client_name, days)
     @token = token
     @hours = hours
-    @project_name = project_name
+    @client_name = client_name
     @days = days
   end
 
-  attr_reader :token, :hours, :project_name, :days
+  attr_reader :token, :hours, :client_name, :days
 
   def client
     Freckle::Client.new(token: token)
@@ -21,7 +21,7 @@ class FreckleLogger
   end
 
   def project_id
-    params = {name: project_name.to_s}
+    params = {name: client_name.to_s}
     projects = client.get_projects(params)
 
     projects[0].id
