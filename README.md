@@ -22,7 +22,7 @@ That is all
 
 
         freckle = FreckleLogger.new("somereallylong tokenacquiredfromfreckleapiauthtokens", 8, namely, 20)
-        freckle.log
+        freckle.log_hours
 - Then run the logger
 
         ruby freckle-logger.rb
