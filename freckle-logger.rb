@@ -18,6 +18,7 @@ class FreckleLogger
       valid_date = date.strftime('%F')
       client.create_entry(attributes(valid_date))
     end
+    puts "Successfully logged hours"
   end
 
   private

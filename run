@@ -1,0 +1,6 @@
+#!/usr/bin/ruby
+
+require_relative "freckle-logger"
+
+freckle = FreckleLogger.new('yourtoken', no_of_hours, project_name, no_of_days)
+freckle.log_hours

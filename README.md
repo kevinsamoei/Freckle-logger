@@ -10,24 +10,12 @@ The project now excludes holidays and weekends :tada:
 To make use of this script, ensure you have cloned the project.
 
 To use:
-- open the file `freckle-logger.rb`
-- Create an instance of  the class at the end of the file
+- open the file `run`
+- Replace the values there with valid details of your project
+- Then execute the script to log hours
 
-    ```
-    freckle = FreckleLogger.new(token, hours, client_name, days)
-    freackle.log_hours
-    ```
+        ./run
 
-That is all
-
-- Example
-
-
-        freckle = FreckleLogger.new("somereallylong tokenacquiredfromfreckleapiauthtokens", 8, namely, 20)
-        freckle.log_hours
-- Then run the logger
-
-        ruby freckle-logger.rb
 
 Enjoy
 
@@ -41,7 +29,7 @@ Worry no more.
 - **client_name** - This is the name of your project/client on freckle. If you work for github you will use, github as the client name.
 - **days** - This is the number of days back you want to log. If you want to log time from one month ago till now, enter 30 as the days.
 
-Right now the tags are hardcorded for billable hours for people on partner engagement. The hardcorded tags are #parnerEngagement and #clientEngagement. Hopefully this willl change soon.
+Right now the tags are hardcorded for billable hours for people on partner engagement(Andela). The hardcorded tags are #parnerEngagement and #clientEngagement. Hopefully this willl change soon.
 
 ### TODO
 
