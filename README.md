@@ -1,11 +1,13 @@
 # Freckle-logger
 Batch logging time entries in freckle
 
+# Update :rotating_light:
+
+The project now excludes holidays and weekends :tada:
+
 ## Usage
 
 To make use of this script, ensure you have cloned the project.
-
-For now this is most things need to be done. Hopefully this will change soon
 
 To use:
 - open the file `freckle-logger.rb`

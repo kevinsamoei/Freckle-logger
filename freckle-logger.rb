@@ -1,5 +1,6 @@
 require 'freckle'
 require 'date'
+require_relative 'calendar'
 
 class FreckleLogger
 
@@ -12,12 +13,30 @@ class FreckleLogger
 
   attr_reader :token, :hours, :client_name, :days
 
+  def log_hours
+    dates.each do |date|
+      valid_date = date.strftime('%F')
+      client.create_entry(attributes(valid_date))
+    end
+  end
+
+  private
   def client
     Freckle::Client.new(token: token)
   end
 
+  def holiday_dates
+   FreckleHolidays.new.holidays 
+  end
+
   def dates
-    ( (Date.today - days)..(Date.today) ).select {|d| (1..5).include?(d.wday) }  
+    valid = ( (Date.today - days)..(Date.today) ).select {|d| (1..5).include?(d.wday) }
+    holiday_dates.each do |holiday|
+      if valid.include?(holiday)
+        valid.delete(holiday)
+      end
+    end
+    valid
   end
 
   def project_id
@@ -34,12 +53,5 @@ class FreckleLogger
       "description": "#clientEngagement, #partnerEngagement",
       "project_id": project_id
     }
-  end
-
-  def log_hours
-    dates.each do |date|
-      valid_date = date.strftime('%F')
-      client.create_entry(attributes(valid_date))
-    end
   end
 end
