@@ -8,6 +8,9 @@ The project now excludes holidays and weekends :tada:
 ## Usage
 
 To make use of this script, ensure you have cloned the project.
+Install requirements;
+
+        bundle install
 
 To use:
 - open the file `run`
