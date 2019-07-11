@@ -10,6 +10,7 @@ The project now excludes holidays and weekends :tada:
 To make use of this script, ensure you have cloned the project.
 Install requirements;
 
+        git clone git@github.com:kevinsamoei/Freckle-logger.git
         bundle install
 
 To use:
