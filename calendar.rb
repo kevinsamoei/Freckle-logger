@@ -41,16 +41,17 @@ class FreckleHolidays
                                   max_results:   1000,
                                   single_events: true,
                                   order_by:      "startTime",
-                                  time_max:      DateTime.now.rfc3339,
+                                  time_max:      DateTime.new(2021,1,1).rfc3339,
                                   time_min:      DateTime.new(2018,1,1).rfc3339)
-    # puts "All holidays from 2018 till now"
+    # puts "All holidays from 2018 till 2021"
     # puts "No events found" if response.items.empty?
-    holiday_dates = []
-    response.items.each do |event|
-      start = event.start.date || event.start.date_time
-      holiday_dates << start
-      # puts "- #{event.summary} (#{start})"
+    File.open('dates.txt', 'w') do |f|
+      response.items.each do |event|
+        start = event.start.date || event.start.date_time
+        f.puts(start)
+        puts "- #{event.summary} (#{start})"
+      end
     end
-    holiday_dates
+    # holiday_dates
   end
 end

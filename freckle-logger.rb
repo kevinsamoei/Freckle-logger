@@ -4,14 +4,14 @@ require_relative 'calendar'
 
 class FreckleLogger
 
-  def initialize(token, hours, client_name, days)
-    @token = token
-    @hours = hours
-    @client_name = client_name
-    @days = days
-  end
+  # def initialize(token, hours, client_name, days)
+  #   @token = token
+  #   @hours = hours
+  #   @client_name = client_name
+  #   @days = days
+  # end
 
-  attr_reader :token, :hours, :client_name, :days
+  # attr_reader :token, :hours, :client_name, :days
 
   def log_hours
     dates.each do |date|
@@ -26,13 +26,22 @@ class FreckleLogger
     Freckle::Client.new(token: token)
   end
 
-  def holiday_dates
-   FreckleHolidays.new.holidays 
+  def read_dates
+    holiday_dates = []
+    File.readlines('dates.txt').each do |line|
+      holiday_dates << line
+    end
+    holiday_dates
   end
+
+  # def holiday_dates
+  #  FreckleHolidays.new.holidays 
+  # end
 
   def dates
     valid = ( (Date.today - days)..(Date.today) ).select {|d| (1..5).include?(d.wday) }
-    holiday_dates.each do |holiday|
+    read_dates.each do |holiday|
+      puts "holiday", holiday
       if valid.include?(holiday)
         valid.delete(holiday)
       end
