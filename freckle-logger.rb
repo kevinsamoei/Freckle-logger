@@ -4,14 +4,14 @@ require_relative 'calendar'
 
 class FreckleLogger
 
-  # def initialize(token, hours, client_name, days)
-  #   @token = token
-  #   @hours = hours
-  #   @client_name = client_name
-  #   @days = days
-  # end
+  def initialize(token, hours, client_name, days)
+    @token = token
+    @hours = hours
+    @client_name = client_name
+    @days = days
+  end
 
-  # attr_reader :token, :hours, :client_name, :days
+  attr_reader :token, :hours, :client_name, :days
 
   def log_hours
     dates.each do |date|
