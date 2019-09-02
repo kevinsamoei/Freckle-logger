@@ -28,7 +28,7 @@ class FreckleLogger
 
   def read_dates
     holiday_dates = []
-    File.readlines('dates.txt').each do |line|
+    File.readlines('holidays.txt').each do |line|
       holiday_dates << line
     end
     holiday_dates
