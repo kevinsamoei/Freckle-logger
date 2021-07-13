@@ -1,8 +1,8 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    addressable (2.6.0)
-      public_suffix (>= 2.0.2, < 4.0)
+    addressable (2.8.0)
+      public_suffix (>= 2.0.2, < 5.0)
     autoparse (0.3.3)
       addressable (>= 2.3.1)
       extlib (>= 0.9.15)
@@ -36,7 +36,7 @@ GEM
     multi_json (1.13.1)
     multipart-post (2.1.1)
     os (1.0.1)
-    public_suffix (3.1.1)
+    public_suffix (4.0.6)
     retriable (3.1.2)
     signet (0.11.0)
       addressable (~> 2.3)
@@ -50,7 +50,7 @@ PLATFORMS
 
 DEPENDENCIES
   freckles
-  google-api-client (~> 0.7.1)
+  google-api-client
   googleauth (~> 0.8.1)
 
 BUNDLED WITH
